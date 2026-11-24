@@ -1,0 +1,47 @@
+:root {
+  color-scheme: light;
+  --ink: #04001e;
+  --muted: #534f6d;
+  --blue: #0037ff;
+  --paper: #fbfbfb;
+  --line: #dbdbe6;
+  font-family: Montserrat, Arial, sans-serif;
+  color: var(--ink);
+  background: var(--paper);
+}
+*, *::before, *::after { box-sizing: border-box; }
+body { margin: 0; line-height: 1.65; }
+a { color: var(--blue); }
+a:focus-visible { outline: 3px solid var(--blue); outline-offset: 5px; }
+.wrap { width: min(1140px, calc(100% - 40px)); margin-inline: auto; }
+header { background: white; border-bottom: 1px solid var(--line); }
+.bar { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 12px 28px; padding-block: 20px; }
+.bar a { color: var(--ink); text-decoration: none; font-weight: 650; }
+nav { display: flex; flex-wrap: wrap; gap: 10px 24px; }
+nav a:hover, .bar .phone { color: var(--blue); }
+.hero { display: grid; grid-template-columns: 1.2fr .8fr; align-items: center; gap: 36px; padding-top: 34px; }
+.hero img { display: block; width: 100%; height: clamp(290px, 46vw, 555px); object-fit: contain; object-position: bottom; }
+h1, h2, h3 { line-height: 1.13; margin: 0 0 .55em; }
+h1 { font-size: clamp(2.15rem, 5vw, 4.25rem); letter-spacing: -.045em; }
+h2 { font-size: clamp(1.6rem, 3vw, 2.7rem); letter-spacing: -.035em; }
+h3 { font-size: 1.15rem; }
+p, ul { margin: 0 0 1.2em; }
+.lead { max-width: 66ch; color: var(--muted); font-size: clamp(1rem, 2vw, 1.19rem); }
+.name { margin-bottom: .6em; color: var(--blue); font-weight: 650; }
+.button { display: inline-block; color: white; background: var(--blue); padding: 13px 22px; border-radius: 8px; text-decoration: none; font-weight: 650; }
+.button:hover { background: #062abb; }
+.section { padding-block: clamp(38px, 7vw, 84px); }
+.band { background: #f1f1f6; }
+.cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 230px), 1fr)); gap: 16px; }
+.card { display: flex; flex-direction: column; align-items: flex-start; border: 1px solid var(--line); border-radius: 16px; background: white; padding: 24px; }
+.card p { color: var(--muted); }
+.card a { margin-top: auto; font-weight: 650; }
+.crumb { padding-top: 20px; margin-bottom: 0; font-size: .9rem; }
+.reading { max-width: 75ch; }
+footer { padding-block: 32px; color: white; background: var(--ink); }
+footer a { color: white; }
+footer p:last-child { margin-bottom: 0; }
+@media (max-width: 700px) {
+  .hero { grid-template-columns: 1fr; gap: 16px; }
+  .hero img { width: min(100%, 340px); margin-inline: auto; height: 330px; }
+}
