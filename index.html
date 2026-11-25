@@ -17,6 +17,38 @@
 
 .archive>section{margin-top:30px}.archive details{border-bottom:1px solid #ccd7e4;padding:13px 0}.archive summary{cursor:pointer;color:#193e70;font-weight:500}.archive h4{font-weight:500;margin:16px 0 5px}.archive details p{margin-bottom:12px}#quiz[hidden],#quiz [hidden]{display:none}#quiz{background:#e7f1fd}#quiz h2+p{max-width:34ch}#quiz fieldset{border:0;padding:0;margin:9px 0}#quiz legend{font-size:23px;font-weight:500;margin-bottom:12px}#quiz label{display:block;background:white;margin:5px 0;border-radius:8px;padding:10px;cursor:pointer}#quiz input{margin-right:10px}.quiz-controls{display:flex;gap:10px;align-items:center;margin-top:16px}.quiz-controls button,.quiz-controls a{cursor:pointer;font:inherit;padding:9px 16px;border:0;border-radius:22px;background:#143b75;color:white}#quiz-back{background:white;color:#143b75}#quiz dl{margin:12px 0}#quiz dt{font-weight:500}#quiz dd{margin:0 0 8px}.quiz-link{display:inline-block;margin-top:12px;text-decoration:underline}
 b, strong { font-weight: 500; }
+
+main {
+  --inset: clamp(24px, 4vw, 56px);
+  --gutter: clamp(24px, 3vw, 48px);
+  --columns: repeat(2, minmax(0, 1fr));
+}
+.hero, .work, .extra, footer { padding-inline: var(--inset); }
+.work, .split, .episodes, .archive > section {
+  grid-template-columns: var(--columns);
+  column-gap: var(--gutter);
+}
+.archive > section { display: grid; align-items: start; }
+.archive > section h3 { grid-column: 1; }
+.archive details { grid-column: 2; }
+.archive details:first-of-type { grid-row: 1; }
+.episodes { row-gap: 12px; }
+.episodes article {
+  display: grid;
+  grid-row: span 5;
+  grid-template-rows: subgrid;
+  align-items: start;
+  min-width: 0;
+}
+.episodes .episode-photo { aspect-ratio: 16 / 9; object-fit: cover; margin: 0; }
+.episodes h3, .episodes a { margin: 0; }
+.episodes a { justify-self: start; }
+@media (max-width: 740px) {
+  main { --inset: 20px; --columns: minmax(0, 1fr); }
+  .archive > section { display: block; }
+  .episodes article { grid-row: auto; grid-template-rows: auto; gap: 12px; }
+  .episodes { row-gap: 24px; }
+}
 </style>
 </head>
 <body>
