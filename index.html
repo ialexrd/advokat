@@ -61,6 +61,24 @@ main {
 .header-contact{gap:12px;margin-left:auto}.socials a{justify-content:center;width:40px;height:44px}.hero header nav{margin-inline:auto}
 @media(min-width:741px) and (max-width:1050px){.hero header{flex-wrap:wrap}.hero header nav{order:3;width:100%;justify-content:center}}
 @media(max-width:540px){.hero header{display:grid;grid-template-columns:1fr auto}.header-contact{flex-direction:column-reverse;align-items:flex-end;gap:0}.socials a{height:36px}.hero header nav{grid-column:1/-1;min-width:0}}
+
+.hero { padding:0; background:#163a69; }
+.hero header { padding:14px var(--inset); }
+.office-banner { position:relative; isolation:isolate; display:grid; align-items:center; min-height:clamp(420px,46vw,650px); padding:36px var(--inset); color:#163357; background:#e5dace; }
+.office-photo { position:absolute; inset:0; z-index:-1; width:100%; height:100%; object-fit:cover; object-position:center 36%; }
+.office-banner .copy { padding:0; max-width:54%; }
+.office-banner h1 em { color:#234e87; }
+.office-banner .copy p { color:#203851; }
+.office-banner .geo:before { background:#234e87; }
+.office-banner .button { background:#163e72; color:white; }
+.office-banner .serviceslink { border-color:#64768c; }
+.office-banner .identity { color:white; }
+@media(max-width:740px){
+  .office-banner { display:block; padding:0; min-height:0; background:#f4eee7; }
+  .office-banner .copy { max-width:none; padding:28px var(--inset) 22px; }
+  .office-photo { position:static; display:block; height:clamp(275px,66vw,370px); object-position:86% center; }
+  .office-banner .identity { bottom:8px; right:10px; padding:6px 11px; }
+}
 </style>
 </head>
 <body>
@@ -68,8 +86,7 @@ main {
 </span>
 <main id="top">
 <section class="hero">
-<div class="scene">
-</div>
+
 <header>
 <a class="brand" href="#about">
 <span class="sig">Ив</span>Илья<br>Ворухайло</a>
@@ -86,6 +103,7 @@ main {
 <a href="https://vk.com/vorlo17" aria-label="Профиль Ильи во ВКонтакте"><img src="assets/vk.svg" width="28" height="28" alt=""></a>
 </div></div>
 </header>
+<div class="office-banner">
 <div class="copy">
 <span class="geo">Челябинск и область</span>
 <h1>Адвокат<br>
@@ -98,9 +116,9 @@ main {
 <a class="serviceslink" href="#practice">Выбрать услугу ↓</a>
 </div>
 </div>
-<img class="portrait" src="assets/portrait.png" alt="Портрет Ильи Ворухайло">
+<img class="office-photo" src="assets/ilya-office-banner.jpg" width="1774" height="887" fetchpriority="high" alt="Илья Ворухайло за рабочим столом">
 <div class="identity" id="lawyer">Илья Андреевич Ворухайло<small>Адвокатская палата Челябинской области<br>Реестровый № 74/2164</small>
-</div>
+</div></div>
 </section>
 <section class="extra split" id="quiz" hidden>
 <div><span class="kicker">Подготовка к консультации</span><h2>Расскажите<br>о ситуации</h2><p>Пять вопросов помогут собрать обращение. В конце вы сможете проверить ответы и передать их адвокату через Telegram.</p></div>
