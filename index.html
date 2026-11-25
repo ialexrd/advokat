@@ -93,6 +93,10 @@ main {
 <div class="identity" id="lawyer">Илья Андреевич Ворухайло<small>Адвокатская палата Челябинской области<br>Реестровый № 74/2164</small>
 </div>
 </section>
+<section class="extra split" id="quiz" hidden>
+<div><span class="kicker">Подготовка к консультации</span><h2>Расскажите<br>о ситуации</h2><p>Пять вопросов помогут собрать обращение. В конце вы сможете проверить ответы и передать их адвокату через Telegram.</p></div>
+<form id="quiz-form"><div id="quiz-step"></div><div class="quiz-controls"><button type="button" id="quiz-back">Назад</button><button id="quiz-next">Далее</button><a id="quiz-send" hidden>Открыть чат адвоката ↗</a></div></form></section>
+<script src="assets/consultation.js" defer></script>
 <span class="alias" id="rec2135911071">
 </span>
 <span class="alias" id="services">
@@ -207,10 +211,7 @@ main {
 </details>
 </div>
 </section>
-<section class="extra split" id="quiz" hidden>
-<div><span class="kicker">Подготовка к консультации</span><h2>Расскажите<br>о ситуации</h2><p>Пять вопросов помогут собрать обращение. В конце вы сможете проверить ответы и передать их адвокату через Telegram.</p></div>
-<form id="quiz-form"><div id="quiz-step"></div><div class="quiz-controls"><button type="button" id="quiz-back">Назад</button><button id="quiz-next">Далее</button><a id="quiz-send" hidden>Открыть чат адвоката ↗</a></div></form></section>
-<script src="assets/consultation.js" defer></script>
+
 <section id="questions" class="extra split faq"><div><span class="kicker">Перед обращением</span><h2>Частые вопросы</h2></div><div>
 <details><summary>Можно ли обратиться за близкого?</summary><p>Да, начните со звонка. Скажите, кому требуется помощь, где находится человек и что вам известно о ситуации.</p></details>
 <details><summary>Можно ли обсудить вопрос дистанционно?</summary><p>Первичную ситуацию можно описать по телефону. Дальнейший формат зависит от вопроса и документов.</p></details>
