@@ -56,6 +56,11 @@ main {
 .case-card small{color:#405e83}.case-card h3{margin:12px 0;font-size:clamp(23px,2.3vw,33px);line-height:1.12}
 .case-card>p{color:#405777;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
 .case-card details{margin-top:20px;border:0;padding:0}.case-card summary{text-underline-offset:4px;text-decoration:underline}
+
+.header-contact,.socials,.socials a{display:flex;align-items:center}
+.header-contact{gap:12px;margin-left:auto}.socials a{justify-content:center;width:40px;height:44px}.hero header nav{margin-inline:auto}
+@media(min-width:741px) and (max-width:1050px){.hero header{flex-wrap:wrap}.hero header nav{order:3;width:100%;justify-content:center}}
+@media(max-width:540px){.hero header{display:grid;grid-template-columns:1fr auto}.header-contact{flex-direction:column-reverse;align-items:flex-end;gap:0}.socials a{height:36px}.hero header nav{grid-column:1/-1;min-width:0}}
 </style>
 </head>
 <body>
@@ -75,7 +80,11 @@ main {
 <a href="#case">Из практики</a>
 <a href="#contacts">Контакты</a>
 </nav>
-<a class="phone" href="tel:+79049708989">8 (904) 970-89-89 ↗</a>
+<div class="header-contact"><a class="phone" href="tel:+79049708989">8 (904) 970-89-89 ↗</a>
+<div class="socials">
+<a href="https://t.me/vary0707" aria-label="Написать Илье в Telegram"><img src="assets/telegram.svg" width="28" height="28" alt=""></a>
+<a href="https://vk.com/vorlo17" aria-label="Профиль Ильи во ВКонтакте"><img src="assets/vk.svg" width="28" height="28" alt=""></a>
+</div></div>
 </header>
 <div class="copy">
 <span class="geo">Челябинск и область</span>
