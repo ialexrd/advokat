@@ -17,7 +17,7 @@
 @media(max-width:740px){.episodes{grid-template-columns:1fr}header{flex-wrap:wrap}header nav{display:flex;order:3;width:100%;overflow-x:auto;justify-content:flex-start}header nav a{white-space:nowrap;padding:6px 9px}.copy{padding-top:32px}}
 .episode-photo{display:block;width:100%;height:auto;border-radius:14px;margin-bottom:16px}
 
-.archive>section{margin-top:30px}.archive details{border-bottom:1px solid #ccd7e4;padding:13px 0}.archive summary{cursor:pointer;color:var(--accent);font-weight:500}.archive h4{font-weight:500;margin:16px 0 5px}.archive details p{margin-bottom:12px}#quiz[hidden],#quiz [hidden]{display:none}#quiz{background:white}#quiz h2+p{max-width:34ch}#quiz fieldset{border:0;padding:0;margin:9px 0}#quiz legend{font-size:23px;font-weight:500;margin-bottom:12px}#quiz label{display:block;background:white;border:1px solid #bbc7d5;margin:5px 0;border-radius:8px;padding:10px;cursor:pointer}#quiz input{margin-right:10px;accent-color:var(--accent)}
+.archive>section{margin-top:30px}.archive details{border-bottom:1px solid #ccd7e4;padding:13px 0}.archive summary{cursor:pointer;color:var(--accent);font-weight:500}.archive h4{font-weight:500;margin:16px 0 5px}.archive details p{margin-bottom:12px}#quiz[hidden],#quiz [hidden]{display:none}#quiz{background:var(--navy);color:white}#quiz h2+p{max-width:34ch}#quiz fieldset{border:0;padding:0;margin:9px 0}#quiz legend{font-size:23px;font-weight:500;margin-bottom:12px}#quiz label{display:block;background:white;color:var(--ink);border:1px solid #bbc7d5;margin:5px 0;border-radius:8px;padding:10px;cursor:pointer}#quiz input{margin-right:10px;accent-color:var(--accent)}
 #quiz label:has(input:checked){border-color:var(--accent);box-shadow:inset 0 0 0 1px var(--accent)}.quiz-controls{display:flex;gap:10px;align-items:center;margin-top:16px}.quiz-controls button,.quiz-controls a{cursor:pointer;font:inherit;padding:9px 16px;border:0;border-radius:22px;background:var(--accent);color:white}#quiz-back{background:white;border:1px solid var(--accent);color:var(--accent)}#quiz dl{margin:12px 0}#quiz dt{font-weight:500}#quiz dd{margin:0 0 8px}.quiz-link{display:inline-block;margin-top:12px;text-decoration:underline}
 b, strong { font-weight: 500; }
 
@@ -82,6 +82,16 @@ main {
   .office-photo { position:static; display:block; height:clamp(275px,66vw,370px); object-position:86% center; }
   .office-banner .identity { bottom:8px; right:10px; padding:6px 11px; }
 }
+
+.site-logo{display:block;flex:none;object-fit:contain}
+#quiz .kicker{color:#c0d9ff}
+#quiz label:has(input:checked){background:#e3efff;color:var(--ink)}
+#quiz-next,#quiz-send{border:1px solid #c0d9ff}
+.site-footer{display:grid;grid-template-columns:var(--columns);align-items:start;gap:24px var(--gutter);margin-top:12px;border-radius:24px;background:var(--navy);color:white}
+.site-footer .brand{text-decoration:none}.site-footer p{margin:14px 0;color:#d8eaff}
+.footer-links{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+.footer-links a{display:block;margin:6px 0}.footer-links h2{font-size:17px;letter-spacing:normal;margin:0 0 10px}
+@media(max-width:400px){.footer-links{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -92,7 +102,7 @@ main {
 
 <header>
 <a class="brand" href="#about">
-<span class="sig">Ив</span>Илья<br>Ворухайло</a>
+<img class="site-logo" src="assets/logo.png" width="45" height="45" alt="">Илья<br>Ворухайло</a>
 <nav aria-label="Навигация">
 <a href="#practice">Услуги</a>
 <a href="#about">Об адвокате</a>
@@ -259,10 +269,19 @@ main {
 <a href="tel:+79049708989">8 (904) 970-89-89 ↗</a>
 <p>Позвоните, чтобы договориться о консультации, или <a class="messenger" href="https://t.me/vary0707">напишите в Telegram</a>.</p>
 </section>
-<footer>
-<strong>Адвокат Илья Ворухайло</strong>
-<a href="#top">Вернуться наверх ↑</a>
-</footer>
+<footer class="site-footer">
+<div>
+<a class="brand" href="#top"><img class="site-logo" src="assets/logo.png" width="52" height="52" alt="">Адвокат Илья Андреевич Ворухайло</a>
+<p>Член Адвокатской палаты Челябинской области<br>Реестровый № 74/2164<br>Удостоверение № 2662</p>
+<a href="tel:+79049708989">8 (904) 970-89-89</a>
+<div class="socials">
+<a href="https://t.me/vary0707" aria-label="Telegram"><img src="assets/telegram.svg" width="28" height="28" alt=""></a>
+<a href="https://vk.com/vorlo17" aria-label="ВКонтакте"><img src="assets/vk.svg" width="28" height="28" alt=""></a>
+</div></div>
+<div class="footer-links">
+<div><h2>Разделы сайта</h2><a href="#top">Главная</a><a href="#practice">Услуги</a><a href="#about">Об адвокате</a><a href="#case">Судебная практика</a><a href="#questions">Вопросы</a></div>
+<div><h2>Полезные ссылки</h2><a href="https://fparf.ru/">Федеральная палата адвокатов</a><a href="https://www.advgazeta.ru/">Адвокатская газета</a><a href="https://advokatvia.ru/politics">Политика конфиденциальности</a></div>
+</div></footer>
 </main>
 </body>
 </html>
