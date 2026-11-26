@@ -238,15 +238,12 @@ main {
 .inner-page #content article, .inner-page #content .links > *, .inner-page #questions > * { min-width:0; }
 
 @keyframes first-screen-appear {
-  from { opacity: .35; }
-  to { opacity: 1; }
+  from { opacity: 0; transform: translateY(24px); }
+  45% { opacity: .78; }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 @media screen and (prefers-reduced-motion: no-preference) {
-  main > .hero:first-child .office-banner,
-  main > .intro:first-child {
-    animation: first-screen-appear 1.6s ease-out;
-  }
+  .first-screen-enter { animation: first-screen-appear 2.2s ease-out both; }
+  .typing-caret { box-shadow: 2px 0 currentColor; }
 }
-
-::highlight(hero-untyped) { color: transparent; }

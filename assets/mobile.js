@@ -70,38 +70,64 @@ document.addEventListener('click', event => {
 });
 mobileView.addEventListener('change', () => setServicesMenu(false));
 
-// Reveal the existing text in place, preserving line breaks and emphasis.
-function typeHeroHeading() {
-  const heading = document.querySelector('.office-banner h1, main > .intro:first-child h1');
-  const motion = window.matchMedia('(prefers-reduced-motion: reduce)');
-  if (!heading || motion.matches || !window.CSS?.highlights || !window.Highlight) return;
-
-  const walker = document.createTreeWalker(heading, NodeFilter.SHOW_TEXT);
-  const letters = [];
-  while (walker.nextNode()) {
-    const node = walker.currentNode;
-    let offset = 0;
-    for (const character of node.data) {
-      offset += character.length;
-      if (character.trim()) letters.push([node, offset]);
-    }
+// Start when the first screen is visible, including tabs opened in the background.
+function animateFirstScreen() {
+  const screen = document.querySelector('.office-banner, main > .intro:first-child');
+  const heading = screen?.querySelector('h1');
+  const motion = matchMedia('(prefers-reduced-motion: reduce)');
+  if (!heading || motion.matches) return;
+  if (document.hidden) {
+    document.addEventListener('visibilitychange', animateFirstScreen, { once: true });
+    return;
   }
-  if (!letters.length) return;
 
-  const pending = document.createRange();
-  pending.selectNodeContents(heading);
-  CSS.highlights.set('hero-untyped', new Highlight(pending));
-  const start = performance.now();
-  const duration = Math.min(3400, Math.max(1600, letters.length * 65));
-  function reveal(now) {
-    const count = Math.floor((now - start) / duration * letters.length);
-    if (motion.matches || count >= letters.length || document.hidden) {
-      CSS.highlights.delete('hero-untyped');
+  const original = [...heading.childNodes];
+  const display = document.createElement('span');
+  display.setAttribute('aria-hidden', 'true');
+  heading.setAttribute('aria-label', heading.textContent.trim().replace(/\s+/g, ' '));
+  for (const node of original) display.append(node.cloneNode(true));
+  const walker = document.createTreeWalker(display, NodeFilter.SHOW_TEXT);
+  const nodes = [];
+  while (walker.nextNode()) nodes.push(walker.currentNode);
+  const letters = [];
+  for (const node of nodes) {
+    const fragment = document.createDocumentFragment();
+    for (const char of node.data) {
+      if (!char.trim()) {
+        fragment.append(char);
+        continue;
+      }
+      const letter = document.createElement('span');
+      letter.style.visibility = 'hidden';
+      letter.textContent = char;
+      fragment.append(letter);
+      letters.push(letter);
+    }
+    node.replaceWith(fragment);
+  }
+  heading.replaceChildren(display);
+  screen.classList.add('first-screen-enter');
+  let shown = 0;
+  let elapsed = 0;
+  let previous;
+  const duration = Math.min(5100, Math.max(2900, letters.length * 105));
+  function frame(now) {
+    if (!document.hidden && previous !== undefined) elapsed += Math.min(now - previous, 80);
+    previous = now;
+    const count = Math.min(letters.length, Math.ceil(Math.max(0, elapsed - 320) / duration * letters.length));
+    while (shown < count) {
+      if (shown) letters[shown - 1].classList.remove('typing-caret');
+      letters[shown].style.visibility = 'visible';
+      letters[shown++].classList.add('typing-caret');
+    }
+    if (motion.matches || shown === letters.length) {
+      heading.replaceChildren(...original);
+      heading.removeAttribute('aria-label');
+      screen.classList.remove('first-screen-enter');
       return;
     }
-    if (count > 0) pending.setStart(...letters[count - 1]);
-    requestAnimationFrame(reveal);
+    requestAnimationFrame(frame);
   }
-  requestAnimationFrame(reveal);
+  requestAnimationFrame(frame);
 }
-typeHeroHeading();
+animateFirstScreen();
