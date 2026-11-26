@@ -72,6 +72,9 @@ main {
 @media(max-width:740px){
   .office-banner { display:block; padding:0; min-height:0; background:#fff; }
   .office-banner .copy { max-width:none; padding:28px var(--inset) 22px; }
+  .office-banner .copy > p,
+  .copy p { max-width:none; width:100%; }
+  .office-banner .copy > p { padding-inline:0; }
   .office-photo { position:static; display:block; height:clamp(275px,66vw,370px); object-position:86% center; }
   .office-banner .identity { bottom:8px; right:10px; padding:6px 11px; }
 }
