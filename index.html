@@ -123,6 +123,28 @@ main {
   .mobile-contact .mobile-call{padding:0 26px;font-size:18px;border-radius:24px;background:white;color:var(--ink)}
   body:has(.mobile-contact:not([hidden])){padding-bottom:calc(68px + env(safe-area-inset-bottom))}
 }
+
+.services-section { padding:clamp(28px,5vw,56px) var(--inset); margin-top:12px; border-radius:24px; background:#f3f5f8; }
+.services-section > p { margin:10px 0 24px; color:var(--secondary); }
+.services-tiles { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:12px; }
+.service-tile {
+  position:relative; display:flex; flex-direction:column; align-items:flex-start;
+  min-height:210px; padding:32px 22px 22px; border-radius:14px; overflow:hidden;
+  border:1px solid #dbe3ee; background:white;
+}
+.service-tile::before { content:""; position:absolute; inset:0 0 auto; height:11px; background:#4575b1; }
+.service-tile:nth-child(2)::before,.service-tile:nth-child(5)::before { background:#86aad5; }
+.service-tile:nth-child(3)::before,.service-tile:nth-child(4)::before { background:#183d6c; }
+.service-tile:last-child { background:#e0ebfa; border-color:#c8d8ed; }
+.service-tile:last-child::before { background:#0a203d; }
+.service-tile .tag { font-size:12px; color:#244676; margin:0 42px 15px 0; }
+.service-tile .arrow { position:absolute; display:grid; place-items:center; top:23px; right:16px; width:35px; height:35px; border-radius:50%; background:#e9f0fa; font-size:20px; font-style:normal; }
+.service-tile:last-child .arrow { background:#0a203d; color:white; }
+.service-tile h3 { margin:auto 0 0; font-size:clamp(21px,2.1vw,30px); font-weight:500; line-height:1.08; letter-spacing:-.04em; overflow-wrap:anywhere; }
+.service-tile p { margin-top:8px; color:var(--secondary); font-size:14px; }
+.service-tile:hover h3 { text-decoration:underline; text-underline-offset:4px; }
+@media(max-width:740px) { .services-tiles { grid-template-columns:repeat(2,minmax(0,1fr)); } }
+@media(max-width:480px) { .services-tiles { grid-template-columns:1fr; } .service-tile { min-height:150px; } }
 </style>
 <link rel="stylesheet" href="assets/header.css">
 </head>
@@ -198,48 +220,16 @@ main {
 </span>
 <span class="alias" id="u">
 </span>
-<section id="practice" class="work">
-<div>
-<span class="kicker">Услуги адвоката</span>
-<h2>С чем вам<br>помочь?</h2><p class="formats">Представительство в суде, подготовка процессуальных документов и юридическое сопровождение организаций.</p>
-<a class="quiz-link" id="quiz-entry" href="#quiz" hidden>Подготовить обращение →</a>
-</div>
-<div>
-<a class="row" href="uslugi/ugolovnye-dela/index.html">
-<span>
-<strong>Защита по уголовному делу</strong>
-<small>Задержание, допрос, защита в суде и обжалование приговора</small>
-</span>
-<span class="arrow">↗</span>
-</a>
-<details open>
-<summary>Гражданские споры<small>Долги, договоры, ущерб после ДТП и трудовые споры</small>
-</summary>
-<p>Помогу оценить требования, подготовить иск или возражения и представить вашу позицию в суде.</p>
-<div class="links">
-<a href="uslugi/predstavitelstvo-v-sude/index.html">Представительство в суде ↗</a>
-<a href="uslugi/pomoshch-pri-dtp/index.html">Споры после ДТП ↗</a>
-</div>
-<p><a href="uslugi/grazhdanskie-dela/">Подробнее об услуге ↗</a></p>
-</details>
-<details>
-<summary>Арбитражные споры<small>Разногласия между предпринимателями и организациями</small>
-</summary>
-<p>Споры с контрагентами по поставке, аренде и подряду, взыскание задолженности. Для первой встречи пригодятся договор, акты и переписка.</p>
-<p><a href="uslugi/arbitrazhnye-spory/">Подробнее об услуге ↗</a></p>
-</details>
-<details>
-<summary>Споры с государственными органами<small>Административный иск по КАС РФ</small>
-</summary>
-<p>Если вы хотите оспорить решение, действие или бездействие органа власти, подготовьте полученный ответ и копию своего обращения.</p>
-<p><a href="uslugi/administrativnye-dela-kas/">Подробнее об услуге ↗</a></p>
-</details>
-<details>
-<summary>Административные правонарушения<small>Штраф, постановление или дело о лишении водительских прав</small>
-</summary>
-<p>Помогу разобраться в материалах дела, подготовить позицию и обсудить обжалование постановления. При обращении сообщите дату получения документов.</p>
-<p><a href="uslugi/administrativnye-pravonarusheniya/">Подробнее об услуге ↗</a></p>
-</details>
+<section id="practice" class="services-section">
+<h2>Услуги адвоката</h2>
+<p>Выберите направление по вашей ситуации.</p>
+<div class="services-tiles">
+<a class="service-tile" href="uslugi/ugolovnye-dela/"><span class="tag">Уголовные дела</span><i class="arrow" aria-hidden="true">↗</i><h3>Уголовная защита</h3><p>Помощь при задержании, на следствии и в суде.</p></a>
+<a class="service-tile" href="uslugi/grazhdanskie-dela/"><span class="tag">Частные споры</span><i class="arrow" aria-hidden="true">↗</i><h3>Гражданские споры</h3><p>Долги, договоры, имущество и трудовые споры.</p></a>
+<a class="service-tile" href="uslugi/arbitrazhnye-spory/"><span class="tag">Для бизнеса</span><i class="arrow" aria-hidden="true">↗</i><h3>Арбитражные споры</h3><p>Договорные споры и долги контрагентов.</p></a>
+<a class="service-tile" href="uslugi/administrativnye-dela-kas/"><span class="tag">КАС РФ</span><i class="arrow" aria-hidden="true">↗</i><h3>Споры с госорганами</h3><p>Оспаривание решений и действий органов власти.</p></a>
+<a class="service-tile" href="uslugi/administrativnye-pravonarusheniya/"><span class="tag">КоАП РФ</span><i class="arrow" aria-hidden="true">↗</i><h3>Административные правонарушения</h3><p>Штрафы, протоколы и споры о водительских правах.</p></a>
+<a class="service-tile" href="uslugi/"><span class="tag">Каталог</span><i class="arrow" aria-hidden="true">↗</i><h3>Все услуги</h3><p>ДТП, представительство в суде, составление исков и другие услуги.</p></a>
 </div>
 </section>
 <span class="alias" id="rec2142968281">
