@@ -123,41 +123,6 @@ main {
   .mobile-contact .mobile-call{padding:0 26px;font-size:18px;border-radius:24px;background:white;color:var(--ink)}
   body:has(.mobile-contact:not([hidden])){padding-bottom:calc(68px + env(safe-area-inset-bottom))}
 }
-
-#practice .service-panels { display:grid; gap:12px; min-width:0; }
-#practice .service-panels > :is(.row, details) {
-  margin:0;
-  border:0;
-  border-radius:16px;
-  background:var(--navy);
-  color:white;
-}
-#practice .service-panels > .row,
-#practice .service-panels summary { padding:16px clamp(16px, 2.4vw, 26px); }
-#practice .service-panels summary { position:relative; padding-right:44px; list-style:none; }
-#practice .service-panels summary::-webkit-details-marker { display:none; }
-#practice .service-panels summary::after {
-  content:"";
-  position:absolute;
-  top:22px;
-  right:23px;
-  width:8px;
-  height:8px;
-  border:solid #dce8f8;
-  border-width:0 2px 2px 0;
-  transform:rotate(45deg);
-}
-#practice .service-panels details[open] summary::after { transform:rotate(225deg); }
-#practice .service-panels :is(small, .arrow) { color:#dce8f8; margin-left:0; }
-#practice .service-panels details[open] summary { border-bottom:1px solid #ffffff35; }
-#practice .service-panels details > :is(p, .links) {
-  margin:0 clamp(16px, 2.4vw, 26px);
-  padding:10px 0;
-  color:#e3edf9;
-}
-#practice .service-panels details a { color:white; }
-#practice .service-panels details > :last-child { padding-bottom:16px; }
-#practice .service-panels :is(a, summary):focus-visible { outline:2px solid #e49922; outline-offset:3px; }
 </style>
 <link rel="stylesheet" href="assets/header.css">
 </head>
@@ -239,7 +204,7 @@ main {
 <h2>С чем вам<br>помочь?</h2><p class="formats">Представительство в суде, подготовка процессуальных документов и юридическое сопровождение организаций.</p>
 <a class="quiz-link" id="quiz-entry" href="#quiz" hidden>Подготовить обращение →</a>
 </div>
-<div class="service-panels">
+<div>
 <a class="row" href="uslugi/ugolovnye-dela/index.html">
 <span>
 <strong>Защита по уголовному делу</strong>
