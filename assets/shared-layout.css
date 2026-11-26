@@ -236,3 +236,15 @@ main {
 
 .inner-page #content, .inner-page #questions, .inner-page #quiz { overflow-wrap:anywhere; }
 .inner-page #content article, .inner-page #content .links > *, .inner-page #questions > * { min-width:0; }
+
+@keyframes first-screen-appear {
+  from { opacity: .35; }
+  to { opacity: 1; }
+}
+
+@media screen and (prefers-reduced-motion: no-preference) {
+  main > .hero:first-child .office-banner,
+  main > .intro:first-child {
+    animation: first-screen-appear 420ms ease-out;
+  }
+}
