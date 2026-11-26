@@ -303,3 +303,7 @@ main {
   line-height: 1.12;
   letter-spacing: -.035em;
 }
+
+@media (max-width: 740px) {
+  .office-banner .copy > p { padding-inline: 0; }
+}
