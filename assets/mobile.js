@@ -110,7 +110,7 @@ function animateFirstScreen() {
   let shown = 0;
   let elapsed = 0;
   let previous;
-  const duration = Math.min(5100, Math.max(2900, letters.length * 105));
+  const duration = Math.min(2550, Math.max(1450, letters.length * 52.5));
   function frame(now) {
     if (!document.hidden && previous !== undefined) elapsed += Math.min(now - previous, 80);
     previous = now;
