@@ -145,6 +145,25 @@ main {
 .service-tile:hover h3 { text-decoration:underline; text-underline-offset:4px; }
 @media(max-width:740px) { .services-tiles { grid-template-columns:repeat(2,minmax(0,1fr)); } }
 @media(max-width:480px) { .services-tiles { grid-template-columns:1fr; } .service-tile { min-height:150px; } }
+
+.about-profile { display:grid; grid-template-columns:minmax(0,1.24fr) minmax(0,.8fr) minmax(0,.57fr); gap:12px; background:#f6f8fb; }
+.about-copy { align-self:center; padding:20px 14px 20px 0; }
+.about-copy h2 { font-size:clamp(32px,4.3vw,56px); }
+.about-copy p { max-width:42ch; color:var(--secondary); margin:16px 0; }
+.about-copy a { text-decoration:underline; text-underline-offset:4px; }
+.about-office-photo { display:block; width:100%; height:420px; object-fit:cover; object-position:center 53%; border-radius:17px; }
+.about-facts { display:grid; grid-template-rows:repeat(3,1fr); gap:12px; margin:0; }
+.about-facts div { display:flex; flex-direction:column-reverse; justify-content:center; gap:4px; padding:15px; background:white; border:1px solid #d4e0ee; border-top:5px solid #7b9fc9; border-radius:12px; }
+.about-facts div:first-child { border-top-color:#193e70; }
+.about-facts div:last-child { border-top-color:#4979b4; }
+.about-facts dt { font-size:14px; color:var(--secondary); }
+.about-facts dd { margin:0; font-size:clamp(18px,1.8vw,24px); }
+@media(max-width:740px) {
+  .about-profile { grid-template-columns:minmax(0,1fr); }
+  .about-copy { padding:0 0 10px; }
+  .about-office-photo { height:clamp(260px,90vw,420px); }
+  .about-facts { grid-template-rows:none; }
+}
 </style>
 <link rel="stylesheet" href="assets/header.css">
 </head>
@@ -236,17 +255,19 @@ main {
 </span>
 <span class="alias" id="o">
 </span>
-<section class="extra split" id="about">
-<div>
-<span class="kicker">Об адвокате</span>
-<h2>Илья Андреевич<br>Ворухайло</h2>
-</div>
-<div class="stack">
-<p>На первой встрече я разбираю вместе с вами документы и объясняю, какие решения предстоит принять. Если дело уже в суде, начинаем с требований сторон и даты ближайшего заседания.</p>
-<p>Член Адвокатской палаты Челябинской области, регистрационный номер 74/2164. Юридический стаж с 2021 года, адвокатская практика с 2023 года.</p>
-<p>Окончил Юридический институт ЮУрГУ с отличием и магистратуру Уральского государственного юридического университета.</p>
-<p>Работаю с гражданами, предпринимателями и организациями. Для бизнеса также доступно абонентское юридическое сопровождение.</p>
-</div>
+<section class="extra about-profile" id="about">
+  <div class="about-copy">
+    <span class="kicker">Об адвокате</span>
+    <h2>Илья Андреевич<br>Ворухайло</h2>
+    <p>Адвокат в Челябинске. На первой встрече изучаю документы, объясняю возможные действия и помогаю определить следующий шаг.</p>
+    <a href="ob-advokate/">Об опыте и образовании ↗</a>
+  </div>
+  <img class="about-office-photo" src="assets/about-office.jpg" loading="lazy" alt="Илья Ворухайло за рабочим столом">
+  <dl class="about-facts">
+    <div><dt>Реестровый номер</dt><dd>74/2164</dd></div>
+    <div><dt>Юридический стаж</dt><dd>С 2021 года</dd></div>
+    <div><dt>Юридическое образование</dt><dd>ЮУрГУ и УрГЮУ</dd></div>
+  </dl>
 </section>
 <span class="alias" id="rec2152384481"></span>
 <section class="extra radio" id="radio">
