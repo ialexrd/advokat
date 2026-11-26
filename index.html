@@ -214,6 +214,28 @@ main {
 .contact-form .booking-submit { width:100%; min-height:44px; }
 .contact-form .booking-field input { min-height:44px; }
 @media(max-width:480px) { .contact-fields { grid-template-columns:minmax(0,1fr); gap:0; } }
+.site-footer.footer-redesign {
+  grid-template-columns: 1.25fr 1.15fr .9fr 1fr;
+  align-items: start;
+  gap:24px;
+  background:white;
+  color:var(--ink);
+  border:1px solid #dbe3ee;
+}
+.footer-redesign nav { display:grid; align-items:start; margin:0; padding:0; gap:8px; background:none; border:0; border-radius:0; }
+.footer-redesign nav a { padding:0; font-size:14px; text-decoration:none; color:var(--secondary); }
+.footer-redesign nav a:hover { text-decoration:underline; background:none; }
+.footer-redesign h2 { margin:0 0 4px; font-size:16px; letter-spacing:normal; font-weight:600; }
+.footer-redesign .brand { line-height:1.2; }
+.footer-redesign .footer-logo { display:grid; place-items:center; background:var(--navy); border-radius:12px; }
+.footer-redesign .footer-identity p { color:var(--secondary); font-size:14px; }
+.footer-contact { display:grid; gap:8px; }
+.footer-contact a { display:flex; align-items:center; gap:8px; font-size:14px; }
+.footer-contact .footer-phone { font-size:17px; }
+.footer-redesign .footer-meta { grid-column:1/-1; display:flex; flex-wrap:wrap; gap:10px 22px; border-top:1px solid #dbe3ee; padding-top:18px; font-size:13px; color:var(--secondary); }
+.footer-meta .footer-up { margin-left:auto; }
+@media(max-width:860px) { .site-footer.footer-redesign { grid-template-columns:repeat(2,minmax(0,1fr)); } }
+@media(max-width:460px) { .site-footer.footer-redesign { grid-template-columns:1fr; } .footer-meta .footer-up { margin-left:0; } }
 </style>
 <link rel="stylesheet" href="assets/header.css">
 </head>
@@ -400,19 +422,28 @@ main {
 </form>
   </div>
 </section>
-<footer class="site-footer">
-<div>
-<a class="brand" href="#top"><img class="site-logo" src="assets/logo-gold.png" width="52" height="52" alt="">Адвокат Илья Андреевич Ворухайло</a>
-<p>Член Адвокатской палаты Челябинской области<br>Реестровый № 74/2164<br>Удостоверение № 2662</p>
-<a href="tel:+79049708989">8 (904) 970-89-89</a>
-<div class="socials">
-<a href="https://t.me/vary0707" aria-label="Telegram"><img src="assets/telegram.svg" width="28" height="28" alt=""></a>
-<a href="https://vk.com/vorlo17" aria-label="ВКонтакте"><img src="assets/vk.svg" width="28" height="28" alt=""></a>
-</div></div>
-<div class="footer-links">
-<div><h2>Разделы сайта</h2><a href="#top">Главная</a><a href="uslugi/">Услуги</a><a href="ob-advokate/">Об адвокате</a><a href="praktika/">Судебная практика</a><a href="#questions">Вопросы</a></div>
-<div><h2>Полезные ссылки</h2><a href="https://fparf.ru/">Федеральная палата адвокатов</a><a href="https://www.advgazeta.ru/">Адвокатская газета</a><a href="https://advokatvia.ru/politics">Политика конфиденциальности</a></div>
-</div></footer>
+<footer class="site-footer footer-redesign">
+  <div class="footer-identity">
+    <a class="brand" href="#top"><span class="footer-logo"><img class="site-logo" src="assets/logo-gold.png" width="46" height="46" alt=""></span>Илья Андреевич<br>Ворухайло</a>
+    <p>Адвокат в Челябинске<br>Реестровый № 74/2164<br>Удостоверение № 2662</p>
+  </div>
+  <nav aria-label="Направления практики">
+    <h2>Услуги</h2>
+    <a href="uslugi/ugolovnye-dela/">Уголовная защита</a><a href="uslugi/grazhdanskie-dela/">Гражданские споры</a><a href="uslugi/arbitrazhnye-spory/">Арбитражные споры</a><a href="uslugi/administrativnye-dela-kas/">Споры с госорганами</a><a href="uslugi/administrativnye-pravonarusheniya/">Дела по КоАП РФ</a><a href="uslugi/">Все услуги ↗</a>
+  </nav>
+  <nav aria-label="Разделы сайта">
+    <h2>Разделы сайта</h2>
+    <a href="ob-advokate/">Об адвокате</a><a href="praktika/">Судебная практика</a><a href="stati/">Статьи</a><a href="#radio">Радиоэфиры</a><a href="#questions">Частые вопросы</a>
+  </nav>
+  <div class="footer-contact">
+    <h2>Контакты</h2>
+    <a class="footer-phone" href="tel:+79049708989">8 (904) 970-89-89</a>
+    <a href="https://t.me/vary0707"><img src="assets/telegram.svg" width="20" height="20" alt="">Telegram</a>
+    <a href="https://vk.com/vorlo17"><img src="assets/vk.svg" width="20" height="20" alt="">ВКонтакте</a>
+    <a href="#contacts">Оставить заявку ↗</a>
+  </div>
+  <div class="footer-meta"><a href="https://advokatvia.ru/politics">Политика конфиденциальности</a><a href="https://fparf.ru/">Федеральная палата адвокатов</a><a href="https://www.advgazeta.ru/">Адвокатская газета</a><a class="footer-up" href="#top">Наверх ↑</a></div>
+</footer>
 </main>
 <div class="mobile-contact" hidden role="group" aria-label="Связаться с адвокатом">
 <a href="https://t.me/vary0707" aria-label="Telegram"><img src="assets/telegram.svg" width="28" height="28" alt=""></a>
