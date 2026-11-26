@@ -294,3 +294,9 @@ main {
   background: var(--navy);
   color: white;
 }
+
+#quiz h2 {
+  font-size: clamp(24px, 2.6vw, 40px);
+  line-height: 1.12;
+  letter-spacing: -.035em;
+}
