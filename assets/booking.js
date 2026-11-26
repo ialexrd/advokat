@@ -31,3 +31,5 @@ bookingForm.addEventListener('submit', event => {
 
   window.location.href = 'https://t.me/vary0707?text=' + encodeURIComponent(message.join('\n'));
 });
+
+if (new URLSearchParams(window.location.search).get('zapis') === '1') booking.showModal();

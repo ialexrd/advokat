@@ -1,0 +1,42 @@
+:root {
+  --navy: #0a203d;
+  --ink: #0d1d33;
+  --muted: #354962;
+  --surface: #edf4fc;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: #eef1f6; color: var(--ink); font: 16px/1.55 Arial, sans-serif; }
+.shell { max-width: 1450px; margin: auto; padding: 18px; }
+a { color: inherit; text-underline-offset: 4px; }
+a:focus-visible, summary:focus-visible { outline: 3px solid #e49922; outline-offset: 4px; }
+header, footer { background: var(--navy); color: white; }
+header { display: flex; justify-content: space-between; align-items: center; gap: 20px; padding: 14px 4%; border-radius: 24px 24px 0 0; }
+.brand { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+.desktop, .links { display: flex; flex-wrap: wrap; gap: 12px 20px; }
+.menu { display: none; }
+.intro, .box, footer { padding: clamp(24px, 4vw, 56px); }
+.intro { background: white; border-radius: 0 0 24px 24px; }
+.intro h1 { max-width: 20ch; margin: 18px 0 10px; font-size: clamp(36px, 6vw, 78px); font-weight: 500; letter-spacing: -.045em; line-height: 1.03; overflow-wrap: anywhere; }
+.intro p, .box p { max-width: 66ch; }
+.button { display: inline-block; border-radius: 30px; padding: 11px 21px; background: var(--navy); color: white; text-decoration: none; }
+.grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 12px; margin-top: 12px; }
+.grid article, .box { border-radius: 22px; }
+.grid article { padding: clamp(20px, 3vw, 40px); background: var(--surface); border: 1px solid #d4e2f2; }
+.grid article:nth-child(4n+2), .grid article:nth-child(4n+3) { background: #e2edfa; }
+.box { background: white; margin-top: 12px; }
+h2, h3, h4 { font-weight: 500; line-height: 1.17; }
+h2 { font-size: clamp(24px, 3vw, 38px); margin: 0 0 12px; }
+.grid h3 { font-size: clamp(23px, 2.5vw, 34px); margin: 10px 0; }
+.grid small, .grid p { color: var(--muted); }
+summary { cursor: pointer; }
+.profile { width: min(180px, 40%); float: right; margin-left: 16px; }
+footer { margin-top: 12px; border-radius: 24px; display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 20px; }
+footer a { display: block; margin-bottom: 5px; }
+@media (max-width: 740px) {
+  .shell { padding: 8px; }
+  .desktop { display: none; }
+  .menu { display: block; position: relative; }
+  .menu nav { position: absolute; right: 0; z-index: 2; width: 200px; padding: 12px; border-radius: 8px; background: var(--navy); }
+  .menu nav a { display: block; padding: 6px; }
+  .grid, footer { grid-template-columns: 1fr; }
+}
