@@ -35,26 +35,37 @@ if (contacts && quizBlock) {
 }
 
 const servicesMenu = document.querySelector('.services-menu');
-const servicesTrigger = servicesMenu.querySelector('summary');
+const servicesTrigger = servicesMenu.querySelector('.services-trigger');
+const servicesDropdown = document.getElementById('services-dropdown');
 
+function setServicesMenu(open) {
+  servicesDropdown.hidden = !open;
+  servicesTrigger.setAttribute('aria-expanded', String(open));
+}
+
+servicesTrigger.addEventListener('click', event => {
+  const desktopMouse = !mobileView.matches && event.pointerType === 'mouse';
+  setServicesMenu(desktopMouse || servicesDropdown.hidden);
+});
 servicesMenu.addEventListener('pointerenter', event => {
-  if (!mobileView.matches && event.pointerType === 'mouse') servicesMenu.open = true;
+  if (!mobileView.matches && event.pointerType === 'mouse') setServicesMenu(true);
 });
 servicesMenu.addEventListener('pointerleave', event => {
-  if (!mobileView.matches && event.pointerType === 'mouse' && !servicesMenu.contains(document.activeElement)) {
-    servicesMenu.open = false;
+  if (!mobileView.matches && event.pointerType === 'mouse' && !servicesDropdown.contains(document.activeElement)) {
+    setServicesMenu(false);
   }
 });
 servicesMenu.addEventListener('focusout', event => {
-  if (!mobileView.matches && !servicesMenu.contains(event.relatedTarget) && !servicesMenu.matches(':hover')) {
-    servicesMenu.open = false;
-  }
+  if (!servicesMenu.contains(event.relatedTarget) && !servicesMenu.matches(':hover')) setServicesMenu(false);
 });
 servicesMenu.addEventListener('keydown', event => {
-  if (event.key === 'Escape' && servicesMenu.open) {
+  if (event.key === 'Escape' && !servicesDropdown.hidden) {
     event.stopPropagation();
-    servicesMenu.open = false;
+    setServicesMenu(false);
     servicesTrigger.focus();
   }
 });
-mobileView.addEventListener('change', () => { servicesMenu.open = false; });
+document.addEventListener('click', event => {
+  if (!servicesMenu.contains(event.target)) setServicesMenu(false);
+});
+mobileView.addEventListener('change', () => setServicesMenu(false));

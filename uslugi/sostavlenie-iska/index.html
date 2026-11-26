@@ -8,8 +8,9 @@
 <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="header-menu" aria-label="Открыть меню"><span aria-hidden="true">☰</span></button>
 <div id="header-menu">
 <nav aria-label="Навигация">
-<details class="services-menu"><summary>Услуги</summary>
-<div class="services-dropdown">
+<div class="services-menu">
+<button class="services-trigger" type="button" aria-controls="services-dropdown" aria-expanded="false"><span>Услуги</span><span class="services-chevron" aria-hidden="true"></span></button>
+<div class="services-dropdown" id="services-dropdown" hidden><div class="services-grid">
 <a href="../../uslugi/ugolovnye-dela/">Адвокат по уголовным делам</a>
 <a href="../../uslugi/grazhdanskie-dela/">Адвокат по гражданским делам</a>
 <a href="../../uslugi/arbitrazhnye-spory/">Арбитражный адвокат</a>
@@ -26,7 +27,7 @@
 <a href="../../uslugi/lishenie-voditelskih-prav/">Адвокат по лишению водительских прав</a>
 <a href="../../uslugi/osparivanie-kredita-moshenniki/">Оспаривание кредита, оформленного под влиянием мошенников</a>
 <a class="all-services" href="../../uslugi/">Все услуги</a>
-</div></details>
+</div></div></div>
 <a href="../../ob-advokate/">Об адвокате</a>
 <a href="../../#radio">Радиоэфиры</a>
 <a href="../../praktika/">Из практики</a>
