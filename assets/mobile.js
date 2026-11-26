@@ -69,3 +69,39 @@ document.addEventListener('click', event => {
   if (!servicesMenu.contains(event.target)) setServicesMenu(false);
 });
 mobileView.addEventListener('change', () => setServicesMenu(false));
+
+// Reveal the existing text in place, preserving line breaks and emphasis.
+function typeHeroHeading() {
+  const heading = document.querySelector('.office-banner h1, main > .intro:first-child h1');
+  const motion = window.matchMedia('(prefers-reduced-motion: reduce)');
+  if (!heading || motion.matches || !window.CSS?.highlights || !window.Highlight) return;
+
+  const walker = document.createTreeWalker(heading, NodeFilter.SHOW_TEXT);
+  const letters = [];
+  while (walker.nextNode()) {
+    const node = walker.currentNode;
+    let offset = 0;
+    for (const character of node.data) {
+      offset += character.length;
+      if (character.trim()) letters.push([node, offset]);
+    }
+  }
+  if (!letters.length) return;
+
+  const pending = document.createRange();
+  pending.selectNodeContents(heading);
+  CSS.highlights.set('hero-untyped', new Highlight(pending));
+  const start = performance.now();
+  const duration = Math.min(3400, Math.max(1600, letters.length * 65));
+  function reveal(now) {
+    const count = Math.floor((now - start) / duration * letters.length);
+    if (motion.matches || count >= letters.length || document.hidden) {
+      CSS.highlights.delete('hero-untyped');
+      return;
+    }
+    if (count > 0) pending.setStart(...letters[count - 1]);
+    requestAnimationFrame(reveal);
+  }
+  requestAnimationFrame(reveal);
+}
+typeHeroHeading();

@@ -245,6 +245,8 @@ main {
 @media screen and (prefers-reduced-motion: no-preference) {
   main > .hero:first-child .office-banner,
   main > .intro:first-child {
-    animation: first-screen-appear 420ms ease-out;
+    animation: first-screen-appear 1.6s ease-out;
   }
 }
+
+::highlight(hero-untyped) { color: transparent; }
