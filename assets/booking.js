@@ -2,10 +2,12 @@ const booking = document.getElementById('booking');
 const bookingForm = document.getElementById('booking-form');
 const bookingPhone = bookingForm.elements.phone;
 
-document.getElementById('booking-open').addEventListener('click', event => {
-  event.preventDefault();
-  booking.showModal();
-});
+for (const trigger of document.querySelectorAll('#booking-open, .about-button')) {
+  trigger.addEventListener('click', event => {
+    event.preventDefault();
+    booking.showModal();
+  });
+}
 
 document.getElementById('booking-close').addEventListener('click', () => booking.close());
 bookingPhone.addEventListener('input', () => bookingPhone.setCustomValidity(''));

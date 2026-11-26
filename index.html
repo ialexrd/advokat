@@ -189,13 +189,18 @@ main {
 }
 
 #about.about-profile { grid-template-columns:repeat(3,minmax(0,1fr)); background:#f3f5f8; padding-block:clamp(28px,5vw,56px); }
-.about-heading { grid-column:1/-1; display:flex; align-items:center; justify-content:space-between; gap:16px; margin-bottom:12px; }
-.about-heading .button { display:inline-flex; gap:14px; align-items:center; min-height:44px; padding:10px 20px; border-radius:24px; background:var(--navy); color:white; }
-.about-copy h3 { font-size:clamp(26px,3.6vw,49px); line-height:1.04; letter-spacing:-.05em; overflow-wrap:anywhere; }
+
+
+
 @media(max-width:740px) {
  #about.about-profile { grid-template-columns:minmax(0,1fr); }
- .about-heading { align-items:flex-start; flex-direction:column; }
+
 }
+
+#about .about-copy h2 { font-size:clamp(28px,3.7vw,52px); overflow-wrap:anywhere; }
+#about .about-button { display:inline-flex; min-height:44px; max-width:100%; text-decoration:none; background:var(--accent); color:white; }
+#about .about-button b { flex-shrink:0; }
+#about .about-office-photo { object-position: center top; }
 </style>
 <link rel="stylesheet" href="assets/header.css">
 </head>
@@ -288,14 +293,12 @@ main {
 <span class="alias" id="o">
 </span>
 <section class="extra about-profile" id="about">
-  <div class="about-heading">
-    <h2>Об адвокате</h2>
-    <a class="button" href="ob-advokate/">Об опыте и образовании <span aria-hidden="true">↗</span></a>
-  </div>
   <div class="about-copy">
 
-    <h3>Илья Андреевич<br>Ворухайло</h3>
+    <span class="kicker">Об адвокате</span>
+    <h2>Илья Андреевич<br>Ворухайло</h2>
     <p>Адвокат в Челябинске. На первой встрече изучаю документы, объясняю возможные действия и помогаю определить следующий шаг.</p>
+    <a class="button about-button" href="#contacts" aria-haspopup="dialog">Записаться <b aria-hidden="true">↗</b></a>
 
   </div>
   <img class="about-office-photo" src="assets/about-chair.jpg" loading="lazy" alt="Илья Ворухайло в кресле">
@@ -402,6 +405,6 @@ main {
 <p class="booking-note" id="booking-note">Откроется черновик в Telegram. Проверьте сообщение и нажмите «Отправить» в чате.</p>
 </form>
 </dialog>
-<script src="assets/booking.js" defer></script>
+<script src="assets/booking.js?v=about" defer></script>
 </body>
 </html>
