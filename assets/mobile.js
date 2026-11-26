@@ -26,8 +26,10 @@ function updateMobileContacts() {
   contacts.hidden = !mobileView.matches || quizBlock.hidden || quizBlock.getBoundingClientRect().bottom > 0;
 }
 
-window.addEventListener('scroll', updateMobileContacts, { passive: true });
-window.addEventListener('resize', updateMobileContacts);
 mobileView.addEventListener('change', () => setMobileMenu(false));
-new ResizeObserver(updateMobileContacts).observe(quizBlock);
-updateMobileContacts();
+if (contacts && quizBlock) {
+  window.addEventListener('scroll', updateMobileContacts, { passive: true });
+  window.addEventListener('resize', updateMobileContacts);
+  new ResizeObserver(updateMobileContacts).observe(quizBlock);
+  updateMobileContacts();
+}
