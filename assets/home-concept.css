@@ -1,0 +1,106 @@
+/* The homepage uses warm paper, navy panels and a restrained brass accent. */
+.home-concept {
+  --paper: #f7f5ef;
+  --navy: #0a203d;
+  --ink: #0d1d33;
+  --bronze: #765125;
+  --rule: #c9c1b4;
+  background: #ebe8e0;
+}
+.home-concept main { --inset: clamp(20px, 5vw, 72px); }
+.home-concept .hero, .home-concept .site-header, .home-concept .office-banner { border-radius: 0; }
+.home-concept .site-header { padding-inline: var(--inset); }
+.home-concept .office-banner {
+  grid-template-columns: 52fr 48fr;
+  min-height: clamp(490px, 47vw, 680px);
+  padding: 0;
+  background: var(--paper);
+  align-items: stretch;
+}
+.home-concept .office-banner .copy {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  max-width: none;
+  padding: 52px clamp(16px, 3vw, 46px) 56px var(--inset);
+}
+.home-concept .office-photo {
+  position: static;
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  object-position: 92% center;
+}
+.home-concept h1, .home-concept h2 {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-weight: 400;
+  letter-spacing: -.045em;
+  line-height: .99;
+}
+.home-concept h1 { font-size: clamp(47px, 5.6vw, 91px); margin: 22px 0; }
+.home-concept h1 em { font-family: inherit; font-size: .83em; letter-spacing: -.058em; }
+.home-concept h2 { font-size: clamp(39px, 5vw, 76px); }
+.home-concept .office-banner .copy p { max-width: 34ch; font-size: clamp(16px, 1.45vw, 21px); }
+.home-concept .geo { color: var(--bronze); font-weight: 600; }
+.home-concept .geo::before { background: #a77a43; }
+.home-concept .office-banner .identity {
+  right: 0;
+  bottom: 0;
+  padding: 12px 20px;
+  border-radius: 0;
+  background: #0a203def;
+}
+.home-concept section.extra { margin-top: 0; border-radius: 0; padding-block: clamp(40px, 6vw, 88px); }
+.home-concept #quiz { margin-top: 0; padding-block: 44px; border-top: 1px solid #ae956b; }
+.home-concept #quiz .kicker, .home-concept #radio .kicker { color: #e5cb9d; }
+.home-concept #quiz #quiz-step { max-width: 580px; }
+.home-concept #quiz label { padding-block: 8px; }
+.home-concept .practice-index {
+  display: grid;
+  grid-template-columns: .7fr 1.3fr;
+  gap: var(--gutter);
+  background: var(--paper);
+  padding: clamp(42px, 7vw, 96px) var(--inset);
+}
+.home-concept .practice-rows > a {
+  display: flex;
+  justify-content: space-between;
+  gap: 14px;
+  border-top: 1px solid var(--rule);
+  padding: 15px 2px;
+}
+.home-concept .practice-rows > a:last-of-type { border-bottom: 1px solid var(--rule); }
+.home-concept .practice-rows strong { display: block; font-size: clamp(19px, 2vw, 30px); }
+.home-concept .practice-rows small { display: block; color: #354962; }
+.home-concept .practice-rows > a:is(:hover, :focus-visible) strong { text-decoration: underline; }
+.home-concept .practice-shortcuts { display: flex; flex-wrap: wrap; gap: 8px 16px; margin-top: 20px; font-size: 14px; }
+.home-concept .editorial-link, .home-concept .practice-shortcuts a { text-decoration: underline; text-underline-offset: 4px; }
+.home-concept .editorial-link { display: inline-block; margin-top: 14px; }
+.home-concept #about { background: #e8e0d1; }
+.home-concept #radio .episodes { gap: 18px; }
+.home-concept #radio .episodes article { border-top-color: #c7aa79; }
+.home-concept #radio .episode-photo { border-radius: 0; }
+.home-concept #radio .episodes h3 { font-family: Georgia, serif; letter-spacing: -.035em; }
+.home-concept #case { background: var(--paper); }
+.home-concept .case-heading { display: flex; justify-content: space-between; align-items: end; gap: 12px; }
+.home-concept .case-cards { grid-template-columns: 1.22fr 1fr 1fr; align-items: stretch; gap: 12px; }
+.home-concept .case-card { border-radius: 0; padding: clamp(18px, 3vw, 36px); background: #efebe0; border-color: #d6cdbd; }
+.home-concept .case-card:first-child { background: var(--navy); border-color: var(--navy); color: white; }
+.home-concept .case-card:first-child :is(small, p, summary) { color: #f2e9d7; }
+.home-concept .case-card h3 { font-family: Georgia, serif; }
+.home-concept #consultation, .home-concept #questions { border-top: 1px solid var(--rule); background: var(--paper); }
+.home-concept .site-footer { margin-top: 0; border-radius: 0; border-top: 1px solid #ffffff40; }
+.home-concept .skip-link { position: absolute; left: 14px; top: 10px; z-index: 40; transform: translateY(-150%); padding: 8px 12px; background: white; }
+.home-concept .skip-link:focus { transform: none; }
+@media (max-width: 740px) {
+  .home-concept .office-banner { display: block; min-height: 0; }
+  .home-concept .office-banner .copy { padding: 25px var(--inset) 26px; }
+  .home-concept .office-banner .copy p { max-width: 34ch; }
+  .home-concept .office-banner h1 { font-size: clamp(39px, 10.5vw, 64px); margin: 16px 0; }
+  .home-concept .office-banner .actions { flex-wrap: wrap; margin-top: 20px; }
+  .home-concept .office-photo { height: min(101vw, 460px); object-position: 95% center; }
+  .home-concept .office-banner .identity { bottom: 0; }
+  .home-concept .practice-index, .home-concept .case-cards { grid-template-columns: minmax(0, 1fr); }
+  .home-concept .case-heading { display: block; }
+}
