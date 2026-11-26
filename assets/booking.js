@@ -18,7 +18,7 @@ for (const bookingForm of document.querySelectorAll('#booking-form, #contact-boo
     const phone = fields.get('phone').trim();
     const digits = phone.replace(/\D/g, '');
     if (!/^\+?[0-9 ()-]+$/.test(phone) || digits.length < 7 || digits.length > 15) {
-      bookingPhone.setCustomValidity('Введите номер телефона с кодом города или страны.');
+      bookingPhone.setCustomValidity('Введите номер телефона с кодом города или страны.');
       bookingPhone.reportValidity();
       return;
     }
