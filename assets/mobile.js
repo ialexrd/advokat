@@ -33,3 +33,28 @@ if (contacts && quizBlock) {
   new ResizeObserver(updateMobileContacts).observe(quizBlock);
   updateMobileContacts();
 }
+
+const servicesMenu = document.querySelector('.services-menu');
+const servicesTrigger = servicesMenu.querySelector('summary');
+
+servicesMenu.addEventListener('pointerenter', event => {
+  if (!mobileView.matches && event.pointerType === 'mouse') servicesMenu.open = true;
+});
+servicesMenu.addEventListener('pointerleave', event => {
+  if (!mobileView.matches && event.pointerType === 'mouse' && !servicesMenu.contains(document.activeElement)) {
+    servicesMenu.open = false;
+  }
+});
+servicesMenu.addEventListener('focusout', event => {
+  if (!mobileView.matches && !servicesMenu.contains(event.relatedTarget) && !servicesMenu.matches(':hover')) {
+    servicesMenu.open = false;
+  }
+});
+servicesMenu.addEventListener('keydown', event => {
+  if (event.key === 'Escape' && servicesMenu.open) {
+    event.stopPropagation();
+    servicesMenu.open = false;
+    servicesTrigger.focus();
+  }
+});
+mobileView.addEventListener('change', () => { servicesMenu.open = false; });
