@@ -92,6 +92,19 @@ main {
 .footer-links{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
 .footer-links a{display:block;margin:6px 0}.footer-links h2{font-size:17px;letter-spacing:normal;margin:0 0 10px}
 @media(max-width:400px){.footer-links{grid-template-columns:1fr}}
+
+.booking{width:min(520px,calc(100% - 24px));max-height:calc(100dvh - 24px);border:0;border-radius:22px;padding:clamp(20px,5vw,34px);color:var(--ink);background:white}
+.booking::backdrop{background:#0a203dbb}
+.booking h2{margin:8px 32px 22px 0;font-size:clamp(24px,5vw,34px);line-height:1.14}
+.booking-close{position:absolute;top:10px;right:10px;width:44px;height:44px;border:0;border-radius:50%;background:#eef1f6;font-size:24px;color:inherit;cursor:pointer}
+.booking-field{display:grid;gap:5px;margin-bottom:14px}
+.booking-field input,.booking-field textarea{width:100%;padding:10px 12px;border:1px solid #adbbcc;border-radius:8px;font:inherit;color:inherit}
+.booking-field textarea{resize:vertical}
+.booking-submit{border:0;border-radius:24px;padding:11px 20px;background:var(--accent);color:white;font:inherit;cursor:pointer}
+.booking-consent{display:flex;gap:8px;align-items:flex-start;margin-top:14px;font-size:14px}
+.booking-consent input{margin-top:4px;accent-color:var(--accent)}
+.booking a{text-decoration:underline}
+.booking-note{margin-top:10px;font-size:14px;color:var(--secondary)}
 </style>
 </head>
 <body>
@@ -124,7 +137,7 @@ main {
 </h1>
 <p>Защищаю по уголовным делам и представляю интересы в суде. Начнём с вашей ситуации.</p>
 <div class="actions">
-<a class="button" href="tel:+79049708989">Записаться <b>↗</b>
+<a class="button" id="booking-open" href="#contacts" aria-haspopup="dialog">Записаться <b>↗</b>
 </a>
 <a class="serviceslink" href="#practice">Выбрать услугу ↓</a>
 </div>
@@ -283,5 +296,18 @@ main {
 <div><h2>Полезные ссылки</h2><a href="https://fparf.ru/">Федеральная палата адвокатов</a><a href="https://www.advgazeta.ru/">Адвокатская газета</a><a href="https://advokatvia.ru/politics">Политика конфиденциальности</a></div>
 </div></footer>
 </main>
+<dialog class="booking" id="booking" aria-labelledby="booking-title">
+<button class="booking-close" type="button" id="booking-close" aria-label="Закрыть">×</button>
+<h2 id="booking-title">Пожалуйста, заполните данные, и Илья Андреевич свяжется с вами</h2>
+<form id="booking-form">
+<label class="booking-field">Имя<input name="name" autocomplete="given-name" required maxlength="80" pattern=".*\S.*" autofocus></label>
+<label class="booking-field">Номер телефона<input type="tel" name="phone" autocomplete="tel" required maxlength="30"></label>
+<label class="booking-field">Краткое описание вопроса (необязательно)<textarea name="question" rows="3" maxlength="400"></textarea></label>
+<button class="booking-submit" type="submit" aria-describedby="booking-note">Отправить данные</button>
+<label class="booking-consent"><input type="checkbox" name="consent" checked required><span>Я соглашаюсь на обработку указанных персональных данных для ответа на моё обращение. <a href="https://advokatvia.ru/politics">Политика конфиденциальности</a></span></label>
+<p class="booking-note" id="booking-note">Откроется черновик в Telegram. Проверьте сообщение и нажмите «Отправить» в чате.</p>
+</form>
+</dialog>
+<script src="assets/booking.js" defer></script>
 </body>
 </html>
