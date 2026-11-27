@@ -1,6 +1,5 @@
 .service-page {
   --interior-pad: clamp(20px, 4vw, 54px);
-  --interior-gutter: var(--interior-pad);
   --interior-panel-pad: clamp(20px, 2.6vw, 36px);
   --interior-gap: clamp(16px, 1.65vw, 24px);
   --interior-radius: 16px;
@@ -12,13 +11,13 @@
   --interior-reading: 74ch;
 }
 
-.service-page .hero { background: transparent; }
+.service-page .hero { background: var(--navy); }
 
 .service-page .service-banner {
   min-height: 310px;
-  margin: 12px var(--interior-gutter) 0;
-  padding: 22px var(--interior-panel-pad) 30px;
-  border-radius: var(--interior-radius);
+  padding: 22px var(--inset) 30px;
+  border-top: 1px solid #c6a85f;
+  border-radius: 0 0 24px 24px;
   color: white;
   background:
     linear-gradient(90deg, #0d2948 0%, #102e51 34%, #0e2948eb 53%, #0a203d12 81%),
@@ -94,8 +93,6 @@
 
 .service-action { margin-top: 18px; }
 .service-page :is(.service-action, .consult-card .about-button):hover { background: #dae9fc; }
-
-.service-body { padding-inline: var(--interior-gutter); }
 
 .section-shortcuts {
   display: grid;
@@ -290,8 +287,6 @@
 }
 
 @media (max-width: 740px) {
-  .service-page { --interior-gutter: 0px; }
-
   .service-page .service-banner {
     min-height: 0;
     padding: 17px var(--interior-pad) 24px;
