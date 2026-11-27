@@ -158,6 +158,41 @@
 #quiz.consultation-quiz dt { font-weight: 600; }
 #quiz.consultation-quiz dd { margin-bottom: 12px; color: #355676; }
 
+#quiz.consultation-quiz .quiz-contact-fields {
+  margin-top: 24px;
+  padding: 14px 0 0;
+  border-top: 1px solid #ccdbee;
+}
+
+#quiz.consultation-quiz .quiz-contact-fields legend { margin-bottom: 0; font-size: 22px; }
+
+#quiz.consultation-quiz .quiz-contact-fields label {
+  min-height: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: none;
+  box-shadow: none;
+}
+
+#quiz.consultation-quiz .quiz-contact-fields .booking-field { display: grid; gap: 5px; }
+#quiz.consultation-quiz .quiz-contact-fields :is(input[type="text"], input:not([type]), input[type="tel"]) {
+  width: 100%;
+  height: auto;
+  min-height: 44px;
+  padding: 10px 12px;
+}
+
+#quiz.consultation-quiz .quiz-contact-fields .booking-consent {
+  align-items: flex-start;
+  margin-top: 14px;
+  font-size: 14px;
+}
+
+#quiz.consultation-quiz .booking-consent input { margin-top: 2px; }
+.quiz-contact-fields .booking-consent a { text-decoration: underline; text-underline-offset: 3px; }
+#quiz-contact-submit { min-height: 46px; margin-top: 16px; border-radius: 12px; background: #0d4d91; }
+
 @media (max-width: 1050px) {
   .quiz-option-icon { display: none; }
 }

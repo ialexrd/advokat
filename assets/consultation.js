@@ -13,13 +13,38 @@
   const get = id => document.getElementById(id);
   const panel = get('quiz-step');
   const skip = get('quiz-skip');
+  const contactForm = get('contact-booking-form');
+  const contactFields = skip && contactForm ? document.createElement('fieldset') : null;
+  const sendButton = get('quiz-send');
+  let contactPhone;
+  if (contactFields) {
+    contactFields.className = 'quiz-contact-fields';
+    const legend = document.createElement('legend');
+    legend.textContent = 'Оставьте контакты';
+    const fields = contactForm.querySelector('.contact-fields').cloneNode(true);
+    const consent = contactForm.querySelector('.booking-consent').cloneNode(true);
+    const note = contactForm.querySelector('.booking-note').cloneNode(true);
+    note.id = 'quiz-contact-note';
+    const contactSubmit = contactForm.querySelector('button[type="submit"]').cloneNode(true);
+    contactSubmit.id = 'quiz-contact-submit';
+    contactSubmit.setAttribute('aria-describedby', note.id);
+    contactFields.append(legend, fields, contactSubmit, consent, note);
+    contactPhone = fields.querySelector('[name="phone"]');
+    contactPhone.addEventListener('input', () => contactPhone.setCustomValidity(''));
+  }
   const categories = ['⚖', '§', '▤', '▥', '✓', '…'];
+  function telegramLink(contact = []) {
+    const responses = questions.flatMap(([question], index) => answers[index] ? [question + ' — ' + answers[index]] : []);
+    const message = ['Здравствуйте! Хочу обратиться за консультацией.', ...contact, ...responses];
+    return 'https://t.me/vary0707?text=' + encodeURIComponent(message.join('\n'));
+  }
+
   function render() {
     const finished = step === questions.length;
     panel.replaceChildren();
     get('quiz-back').hidden = !step;
     get('quiz-next').hidden = finished;
-    get('quiz-send').hidden = !finished;
+    sendButton.hidden = !finished || Boolean(contactFields);
     if (skip) skip.hidden = finished;
     if (skip) {
       const progress = document.createElement('div');
@@ -47,11 +72,15 @@
         value.textContent = answers[index] || 'Пропущено';
         list.append(term, value);
       });
-      const note = document.createElement('p');
-      note.textContent = 'В Telegram откроется черновик. Можно добавить имя и контакт для ответа, затем нажать «Отправить».';
-      panel.append(heading, list, note);
-      const message = questions.flatMap(([q], i) => answers[i] ? [q + ' — ' + answers[i]] : []).join('\n');
-      get('quiz-send').href = 'https://t.me/vary0707?text=' + encodeURIComponent('Здравствуйте! Хочу обратиться за консультацией.\n' + message);
+      panel.append(heading, list);
+      if (contactFields) {
+        panel.append(contactFields);
+      } else {
+        const note = document.createElement('p');
+        note.textContent = 'В Telegram откроется черновик. Можно добавить имя и контакт для ответа, затем нажать «Отправить».';
+        panel.append(note);
+        sendButton.href = telegramLink();
+      }
     } else {
       const counter = document.createElement('small');
       counter.textContent = 'Вопрос ' + (step + 1) + ' из ' + questions.length;
@@ -97,7 +126,16 @@
   }
   get('quiz-form').onsubmit = event => {
     event.preventDefault();
-    if (step < questions.length && answers[step]) move(1);
+    if (step < questions.length) {
+      if (answers[step]) move(1);
+      return;
+    }
+    if (!contactFields || !validateBookingPhone(contactPhone)) return;
+    const fields = new FormData(event.currentTarget);
+    window.location.href = telegramLink([
+      'Имя: ' + fields.get('name').trim(),
+      'Телефон: ' + fields.get('phone').trim()
+    ]);
   };
   get('quiz-back').onclick = () => move(-1);
   if (skip) skip.onclick = () => {
