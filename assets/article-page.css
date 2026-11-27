@@ -1,0 +1,55 @@
+.article-trail { display: flex; flex-wrap: wrap; gap: 9px; color: #174779; font-size: 14px; }
+.article-trail a { text-decoration: underline; text-underline-offset: 3px; }
+
+.article-page .article-shell {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(240px, 310px);
+  gap: 18px;
+  align-items: start;
+  margin-top: 12px;
+}
+
+.article-page .article-prose {
+  min-width: 0;
+  padding: clamp(20px, 3.4vw, 48px);
+  border-radius: 18px;
+  background: white;
+  line-height: 1.65;
+}
+
+.article-prose :is(h2, h3) { max-width: 45ch; line-height: 1.2; letter-spacing: -.025em; }
+.article-prose h2 { margin: 24px 0 10px; font-size: clamp(24px, 2.35vw, 34px); }
+.article-prose h3 { margin: 20px 0 8px; font-size: clamp(18px, 1.7vw, 23px); }
+.article-prose > :first-child, .article-prose > section:first-child > h2 { margin-top: 0; }
+.article-prose :is(p, ul, ol) { max-width: 72ch; margin: 0 0 12px; }
+.article-prose a { color: #174779; text-decoration: underline; text-underline-offset: 3px; }
+.article-prose :is(section, h2, h3, details) { scroll-margin-top: 16px; }
+.article-prose .article-table { display: block; overflow-x: auto; margin: 12px 0; }
+.article-prose table { width: 100%; border-collapse: collapse; }
+.article-prose :is(th, td) { padding: 8px 12px; border: 1px solid #d7e3f2; text-align: left; vertical-align: top; }
+.article-prose th { background: #edf4fc; }
+.article-prose details { padding: 12px 0; border-bottom: 1px solid #d7e3f2; }
+.article-prose details p { margin: 8px 0 0; }
+
+.article-aside { display: grid; gap: 12px; min-width: 0; }
+.article-page .article-aside > * {
+  display: block;
+  margin: 0;
+  padding: 18px;
+  border: 1px solid #d7e3f2;
+  border-radius: 16px;
+  background: #f8fbff;
+}
+.article-aside h2 { margin: 0 0 10px; font-size: 20px; line-height: 1.2; letter-spacing: -.02em; }
+.article-aside ol { margin: 0; padding: 0; list-style: none; }
+.article-aside li + li { border-top: 1px solid #d7e3f2; }
+.article-aside li a { display: block; padding: 8px 0; border-radius: 0; color: #174779; font-size: 14px; white-space: normal; }
+.article-aside li a:hover { text-decoration: underline; }
+.article-aside img { float: right; width: 64px; height: 82px; object-fit: cover; object-position: 50% 20%; border-radius: 9px; background: #e3eefb; }
+.article-aside .article-adviser p { margin: 0 72px 7px 0; font-size: 14px; line-height: 1.4; }
+.article-adviser > a { display: inline-block; margin-top: 8px; color: #174779; text-decoration: underline; }
+
+@media (max-width: 800px) {
+  .article-page .article-shell { grid-template-columns: minmax(0, 1fr); }
+  .article-page .article-aside { grid-row: 1; }
+}

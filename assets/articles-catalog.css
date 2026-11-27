@@ -109,8 +109,8 @@
   border-radius: 9px;
   background: #dce9f9 url("articles-thumbnails.jpg") 0 center / 300% auto no-repeat;
 }
-.article-card[data-category="credit"] .article-card-preview { background-position: 50% center; }
-.article-card[data-category="dtp"] .article-card-preview { background-position: 100% center; }
+.article-card-preview[data-preview="credit"] { background-position: 50% center; }
+.article-card-preview[data-preview="dtp"] { background-position: 100% center; }
 .article-card-copy { display: flex; flex: 1; flex-direction: column; align-items: flex-start; padding: 12px 8px 6px; }
 .article-category { padding: 3px 9px; border-radius: 14px; background: #dcecff; color: #174779; font-size: 12px; line-height: 1.3; }
 .article-card h2 { margin: 9px 0 7px; font-size: clamp(18px, 1.36vw, 22px); font-weight: 700; line-height: 1.2; letter-spacing: -.025em; overflow-wrap: anywhere; }
