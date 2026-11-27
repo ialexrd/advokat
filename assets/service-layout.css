@@ -1,0 +1,310 @@
+.service-page {
+  --interior-pad: clamp(20px, 4vw, 54px);
+  --interior-gutter: var(--interior-pad);
+  --interior-panel-pad: clamp(20px, 2.6vw, 36px);
+  --interior-gap: clamp(16px, 1.65vw, 24px);
+  --interior-radius: 16px;
+  --interior-h1: clamp(32px, 3.2vw, 48px);
+  --interior-h2: clamp(24px, 2.35vw, 34px);
+  --interior-h3: clamp(19px, 1.7vw, 24px);
+  --interior-lead: clamp(16px, 1.35vw, 19px);
+  --interior-caption: 14px;
+  --interior-reading: 74ch;
+}
+
+.service-page .hero { background: transparent; }
+
+.service-page .service-banner {
+  min-height: 310px;
+  margin: 12px var(--interior-gutter) 0;
+  padding: 22px var(--interior-panel-pad) 30px;
+  border-radius: var(--interior-radius);
+  color: white;
+  background:
+    linear-gradient(90deg, #0d2948 0%, #102e51 34%, #0e2948eb 53%, #0a203d12 81%),
+    var(--navy) url("service-banner.jpg") right center / cover no-repeat;
+}
+
+.service-banner .breadcrumbs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px 10px;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: #e4edfa;
+  font-size: var(--interior-caption);
+}
+
+.service-banner .breadcrumbs a {
+  padding: 0;
+  font: inherit;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.breadcrumbs [aria-hidden] { color: #9ab7dd; }
+
+.service-banner .service-intro { max-width: 63%; }
+
+.service-banner .service-kind {
+  display: inline-block;
+  margin-top: 23px;
+  padding: 3px 10px;
+  border-radius: 20px;
+  color: #e8f1ff;
+  background: #31537a;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: .04em;
+}
+
+.service-page .service-banner h1 {
+  margin: 8px 0 10px;
+  font-size: var(--interior-h1);
+  font-weight: 600;
+  line-height: 1.06;
+  letter-spacing: -.04em;
+  overflow-wrap: anywhere;
+}
+
+.service-intro > p {
+  max-width: 64ch;
+  color: #eef4fc;
+  font-size: var(--interior-lead);
+  line-height: 1.5;
+}
+
+.service-page :is(.service-action, .consult-card .about-button) {
+  display: inline-flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  min-height: 44px;
+  width: fit-content;
+  max-width: 100%;
+  padding: 10px 16px;
+  border-radius: 12px;
+  background: #f8faff;
+  color: var(--navy);
+  font-size: 15px;
+  line-height: 1.25;
+  font-weight: 600;
+}
+
+.service-action { margin-top: 18px; }
+.service-page :is(.service-action, .consult-card .about-button):hover { background: #dae9fc; }
+
+.service-body { padding-inline: var(--interior-gutter); }
+
+.section-shortcuts {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin: 12px 0 24px;
+  padding: 14px 0;
+  background: #f8faff;
+  border: 1px solid #dae3ef;
+  border-radius: var(--interior-radius);
+}
+
+.section-shortcuts a {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding-inline: clamp(12px, 2vw, 28px);
+}
+
+.section-shortcuts a + a { border-left: 1px solid #d5e1ee; }
+.section-shortcuts a:hover strong { text-decoration: underline; }
+.section-shortcuts strong, .section-shortcuts small { display: block; }
+.section-shortcuts strong { line-height: 1.3; }
+.section-shortcuts small { margin-top: 4px; color: var(--secondary); font-size: 13px; }
+.shortcut-icon {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: #e2edfb;
+  color: #163c67;
+  font-size: 23px;
+  font-weight: 600;
+}
+
+.service-columns {
+  display: grid;
+  grid-template-columns: minmax(0, 1.89fr) minmax(0, 1fr);
+  align-items: start;
+  gap: var(--interior-gap);
+}
+
+.service-page #content {
+  padding: var(--interior-panel-pad);
+  border-radius: var(--interior-radius);
+  background: white;
+  color: var(--ink);
+}
+
+.service-page #content > .box:first-child,
+.service-page #content > .box,
+.service-page #content > .grid,
+.service-page #content .grid article {
+  display: block;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  color: inherit;
+  overflow: visible;
+}
+
+.service-page #content .grid article::before { content: none; }
+.service-page #content > :is(.box, .grid) + :is(.box, .grid),
+.service-page #content .grid article + article { margin-top: 26px; }
+
+.service-page #content :is(.box, .grid article) h2 {
+  margin: 0 0 12px;
+  font-size: var(--interior-h2);
+  font-weight: 600;
+  line-height: 1.16;
+  letter-spacing: -.032em;
+}
+
+.service-page #content p {
+  max-width: var(--interior-reading);
+  color: var(--secondary);
+  font-size: 16px;
+  line-height: 1.58;
+}
+
+.service-page #content p + p { margin-top: 12px; }
+.service-page #content a { text-underline-offset: 3px; }
+.service-page #content [id] { scroll-margin-top: 18px; }
+
+.service-page #content .related-services {
+  margin-top: 28px;
+  padding-top: 20px;
+  border-top: 1px solid #dce5ef;
+}
+
+.service-page #content .related-services h3 {
+  margin: 0 0 12px;
+  font-size: var(--interior-h3);
+  line-height: 1.2;
+  letter-spacing: -.02em;
+}
+
+.service-page #content .related-services .links {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.service-page #content .related-services a {
+  display: flex;
+  align-items: center;
+  padding: 10px 12px;
+  border: 1px solid #dbe5f2;
+  border-radius: 10px;
+  background: #f4f8fd;
+  color: #15385e;
+  font-size: var(--interior-caption);
+  line-height: 1.4;
+  text-decoration: none;
+}
+
+.service-page #content .related-services a:hover { text-decoration: underline; }
+
+.service-aside { display: grid; gap: 16px; min-width: 0; }
+
+.consult-card, .service-outline {
+  padding: clamp(18px, 2vw, 28px);
+  border-radius: var(--interior-radius);
+}
+
+.consult-card {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  color: white;
+  background: radial-gradient(ellipse at 95% 26%, #315779, transparent 66%), #102a47;
+}
+
+.consult-card img {
+  position: absolute;
+  z-index: -1;
+  width: 48%;
+  height: auto;
+  bottom: 0;
+  right: -16px;
+  -webkit-mask-image: linear-gradient(90deg, transparent, black 22%);
+  mask-image: linear-gradient(90deg, transparent, black 22%);
+}
+
+.consult-card h2, .service-outline h2 {
+  margin: 0 0 10px;
+  font-size: var(--interior-h3);
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -.025em;
+}
+
+.consult-card h2 { max-width: 65%; }
+.consult-card p { max-width: 59%; color: #edf3fb; font-size: 14px; line-height: 1.45; }
+.consult-card .consult-name { margin-bottom: 6px; font-weight: 600; }
+.consult-card .consult-phone {
+  display: block;
+  width: fit-content;
+  margin-top: 15px;
+  font-size: clamp(16px, 1.55vw, 22px);
+  font-weight: 600;
+  line-height: 1.25;
+}
+.consult-card .about-button { margin-top: 15px; }
+
+.service-outline {
+  display: block;
+  background: #f8faff;
+  border: 1px solid #dce5ef;
+}
+.service-outline ul { margin: 0; padding: 0; list-style: none; }
+.service-outline li + li { border-top: 1px solid #dce5ef; }
+.service-outline a {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 9px 0;
+  border-radius: 0;
+  color: #15385e;
+  font-size: var(--interior-caption);
+  line-height: 1.4;
+}
+.service-outline a:hover { background: transparent; text-decoration: underline; }
+.service-outline a span { flex: none; }
+
+@media (max-width: 950px) {
+  .service-columns { grid-template-columns: minmax(0, 1fr); }
+  .consult-card img { width: min(48%, 240px); }
+}
+
+@media (max-width: 740px) {
+  .service-page { --interior-gutter: 0px; }
+
+  .service-page .service-banner {
+    min-height: 0;
+    padding: 17px var(--interior-pad) 24px;
+    background:
+      linear-gradient(90deg, #0d2948 6%, #0d2948eb 58%, #0d2948af),
+      var(--navy) url("service-banner.jpg") 77% center / cover no-repeat;
+  }
+
+  .service-banner .service-intro { max-width: none; }
+  .service-banner .service-kind { margin-top: 16px; }
+  .section-shortcuts { grid-template-columns: minmax(0, 1fr); margin-bottom: 14px; padding: 0 14px; }
+  .section-shortcuts a { padding: 8px 0; }
+  .section-shortcuts a + a { border-left: 0; border-top: 1px solid #d5e1ee; }
+  .shortcut-icon { width: 36px; height: 36px; border-radius: 9px; }
+  .service-page #content .related-services .links { grid-template-columns: minmax(0, 1fr); }
+}
